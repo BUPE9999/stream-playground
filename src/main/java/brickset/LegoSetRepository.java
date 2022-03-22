@@ -3,8 +3,7 @@ package brickset;
 import repository.Repository;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
+
 
 public class LegoSetRepository extends Repository<LegoSet> {
 
@@ -39,11 +38,11 @@ public class LegoSetRepository extends Repository<LegoSet> {
                 .forEach(System.out::println);
     }
 
-    // method 4: print the year of theme which we typed
+    // method 4: print the subtheme of theme which we typed
     public void method4(String theme){
         getAll().stream()
                 .filter(legoSet -> legoSet.getTheme() != null && legoSet.getTheme().contains(theme))
-                .map(LegoSet::getYear)
+                .map(LegoSet::getSubtheme)
                 .forEach(System.out::println);
     }
 
