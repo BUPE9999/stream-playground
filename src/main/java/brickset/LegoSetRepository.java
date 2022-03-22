@@ -20,7 +20,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
      * print all information which packagingType is not none
      * @return nothing
      */
-    public void method1(){
+    public void InfoWithPackagingType(){
         getAll().stream()
                 .filter(LegoSet -> LegoSet.getPackagingType() != PackagingType.NONE)
                 .forEach(System.out::println);
@@ -31,7 +31,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
      * print all name start by "A" and sort
      * @return nothing
      */
-    public void method2(){
+    public void NameStartByA(){
         getAll().stream()
                 .filter(LegoSet -> LegoSet.getName().startsWith("a")||LegoSet.getName().startsWith("A"))
                 .map(LegoSet::getName)
@@ -44,7 +44,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
      * Print length of name is greater than 5 (top 3)
      * @return nothing
      */
-    public void method3(){
+    public void NameLengthGreaterThan5(){
         getAll().stream()
                 .limit(4)
                 .filter(LegoSet -> LegoSet.getName().length() > 5)
@@ -58,7 +58,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
      * Print the subtheme of theme which we typed
      * @return nothing
      */
-    public void method4(String theme){
+    public void SubThemePrint(String theme){
         getAll().stream()
                 .filter(legoSet -> legoSet.getTheme() != null && legoSet.getTheme().contains(theme))
                 .map(LegoSet::getSubtheme)
@@ -70,7 +70,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
      * Print the number of theme which pieces are greater than 500
      * @return the number of LEGO sets with the theme
      */
-    public long method5(){
+    public long NumOfTheme(){
         return getAll().stream()
                 .filter(LegoSet -> LegoSet.getPieces() > 500)
                 .map(LegoSet::getTheme)
