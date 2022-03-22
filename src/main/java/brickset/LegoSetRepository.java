@@ -4,6 +4,10 @@ import repository.Repository;
 
 import java.util.ArrayList;
 
+/**
+ * @author Fang Dongzhou
+ */
+
 
 public class LegoSetRepository extends Repository<LegoSet> {
 
@@ -11,16 +15,27 @@ public class LegoSetRepository extends Repository<LegoSet> {
         super(LegoSet.class, "brickset.json");
     }
 
+    /**
+     * Returns the number of LEGO sets with the tag specified.
+     *
+     * @param tag a LEGO set tag
+     * @return the number of LEGO sets with the tag specified
+     */
 
-    // method 1: print all information which packagingType is not none
+    /**
+     * Method 1
+     * print all information which packagingType is not none
+     */
     public void method1(){
         getAll().stream()
                 .filter(LegoSet -> LegoSet.getPackagingType() != PackagingType.NONE)
                 .forEach(System.out::println);
     }
 
-    // method 2: print all name start by "A" and sort
-
+    /**
+     * Method 2
+     * print all name start by "A" and sort
+     */
     public void method2(){
         getAll().stream()
                 .filter(LegoSet -> LegoSet.getName().startsWith("a")||LegoSet.getName().startsWith("A"))
@@ -29,7 +44,10 @@ public class LegoSetRepository extends Repository<LegoSet> {
                 .forEach(System.out::println);
     }
 
-    // method 3: print length of name is greater than 5 (top 3)
+    /**
+     * Method 3
+     * Print length of name is greater than 5 (top 3)
+     */
     public void method3(){
         getAll().stream()
                 .limit(4)
@@ -38,7 +56,11 @@ public class LegoSetRepository extends Repository<LegoSet> {
                 .forEach(System.out::println);
     }
 
-    // method 4: print the subtheme of theme which we typed
+    /**
+     * Method 4
+     * @param theme a LEGO set theme
+     * Print the subtheme of theme which we typed
+     */
     public void method4(String theme){
         getAll().stream()
                 .filter(legoSet -> legoSet.getTheme() != null && legoSet.getTheme().contains(theme))
@@ -46,9 +68,12 @@ public class LegoSetRepository extends Repository<LegoSet> {
                 .forEach(System.out::println);
     }
 
-
-     // method 5: print the number of theme which pieces are greater than 500
-
+    /**
+     * Method 5
+     * Print the number of theme which pieces are greater than 500
+     * @param pieces
+     * @return the number of LEGO sets with the theme
+     */
     public long method5(){
         return getAll().stream()
                 .filter(LegoSet -> LegoSet.getPieces() > 500)
