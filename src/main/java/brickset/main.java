@@ -6,23 +6,23 @@ public class main {
         LegoSetRepository lego = new LegoSetRepository();
 
         System.out.println("method 1: ");
-        lego.InfoWithPackagingType();
+        lego.printInfoWithPackagingType();
         System.out.println();
 
         System.out.println("method 2:");
-        lego.NameStartByA();
+        lego.printNameStartByA();
         System.out.println();
 
         System.out.println("method 3:");
-        lego.NameLengthGreaterThan5();
+        lego.printNameLengthGreaterThan5();
         System.out.println();
 
         System.out.println("method 4:");
-        lego.SubThemePrint("Promotional");
+        lego.printSubTheme("Promotional");
         System.out.println();
 
         System.out.println("method 5:");
-        System.out.println(lego.NumOfTheme());
+        System.out.println(lego.countNumOfTheme());
 
 
     }
