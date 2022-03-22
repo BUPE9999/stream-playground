@@ -3,6 +3,9 @@ package brickset;
 import repository.Repository;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Fang Dongzhou
@@ -17,37 +20,37 @@ public class LegoSetRepository extends Repository<LegoSet> {
 
     /**
      * Method 1
-     * print all information which packagingType is not none
-     * @return nothing
+     * count the number of object which packagingType is not none and subtheme is not null
+     * @return number of object which satisfied the requirement
      */
-    public void printInfoWithPackagingType(){
-        getAll().stream()
-                .filter(LegoSet -> LegoSet.getPackagingType() != PackagingType.NONE)
-                .forEach(System.out::println);
+    public long countObject(){
+        return getAll().stream()
+                .filter(LegoSet -> LegoSet.getPackagingType() != PackagingType.NONE && LegoSet.getSubtheme()!=null)
+                .count();
     }
+
 
     /**
      * Method 2
-     * print all name start by "A" and sort
-     * @return nothing
+     * return LEGOSET which name contains element we typed
+     * @param name is a string from LEGO set para: name
+     * @return LEGO set with name specified
      */
-    public void printNameStartByA(){
-        getAll().stream()
-                .filter(LegoSet -> LegoSet.getName().startsWith("a")||LegoSet.getName().startsWith("A"))
-                .map(LegoSet::getName)
-                .sorted()
-                .forEach(System.out::println);
+    public List<LegoSet> printLegoSetNameWith (String name){
+        return getAll().stream()
+                .filter(LegoSet -> LegoSet.getName().contains(name))
+                .collect(Collectors.toList());
     }
+
 
     /**
      * Method 3
-     * Print length of name is greater than 5 (top 3)
+     * Print name which length is greater than 5 and theme name start with "A"
      * @return nothing
      */
-    public void printNameLengthGreaterThan5(){
+    public void printNaLenGrThan5ThemeNaStartWithA(){
         getAll().stream()
-                .limit(4)
-                .filter(LegoSet -> LegoSet.getName().length() > 5)
+                .filter(LegoSet -> LegoSet.getName().length() > 5 && LegoSet.getTheme().startsWith("A"))
                 .map(LegoSet::getName)
                 .forEach(System.out::println);
     }
@@ -55,7 +58,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
     /**
      * Method 4
      * @param theme from LEGO set para: theme
-     * Print the subtheme of theme which we typed
+     * Print the subtheme name which theme specified
      * @return nothing
      */
     public void printSubTheme(String theme){
@@ -67,8 +70,8 @@ public class LegoSetRepository extends Repository<LegoSet> {
 
     /**
      * Method 5
-     * Print the number of theme which pieces are greater than 500
-     * @return the number of LEGO sets with the theme
+     * count the number of theme which pieces are greater than 500
+     * @return the number of LEGO sets with the theme which satisfied requirement
      */
     public long countNumOfTheme(){
         return getAll().stream()

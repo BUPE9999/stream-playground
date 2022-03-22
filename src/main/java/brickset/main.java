@@ -1,20 +1,24 @@
 package brickset;
 
+import java.util.ArrayList;
+
 public class main {
 
     public static void main(String[] args) {
         LegoSetRepository lego = new LegoSetRepository();
 
+        ArrayList<Class> LegoSet = new ArrayList<>();
+
         System.out.println("method 1: ");
-        lego.printInfoWithPackagingType();
+        System.out.println(lego.countObject());
         System.out.println();
 
         System.out.println("method 2:");
-        lego.printNameStartByA();
+        System.out.println(lego.printLegoSetNameWith("Knight"));
         System.out.println();
 
         System.out.println("method 3:");
-        lego.printNameLengthGreaterThan5();
+        lego.printNaLenGrThan5ThemeNaStartWithA();
         System.out.println();
 
         System.out.println("method 4:");
