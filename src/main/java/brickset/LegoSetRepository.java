@@ -16,15 +16,9 @@ public class LegoSetRepository extends Repository<LegoSet> {
     }
 
     /**
-     * Returns the number of LEGO sets with the tag specified.
-     *
-     * @param tag a LEGO set tag
-     * @return the number of LEGO sets with the tag specified
-     */
-
-    /**
      * Method 1
      * print all information which packagingType is not none
+     * @return nothing
      */
     public void method1(){
         getAll().stream()
@@ -35,6 +29,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
     /**
      * Method 2
      * print all name start by "A" and sort
+     * @return nothing
      */
     public void method2(){
         getAll().stream()
@@ -47,6 +42,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
     /**
      * Method 3
      * Print length of name is greater than 5 (top 3)
+     * @return nothing
      */
     public void method3(){
         getAll().stream()
@@ -58,8 +54,9 @@ public class LegoSetRepository extends Repository<LegoSet> {
 
     /**
      * Method 4
-     * @param theme a LEGO set theme
+     * @param theme from LEGO set para: theme
      * Print the subtheme of theme which we typed
+     * @return nothing
      */
     public void method4(String theme){
         getAll().stream()
@@ -71,7 +68,6 @@ public class LegoSetRepository extends Repository<LegoSet> {
     /**
      * Method 5
      * Print the number of theme which pieces are greater than 500
-     * @param pieces
      * @return the number of LEGO sets with the theme
      */
     public long method5(){
