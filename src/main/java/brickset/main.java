@@ -27,6 +27,27 @@ public class main {
 
         System.out.println("method 5:");
         System.out.println(lego.countNumOfTheme());
+        System.out.println();
+
+
+        System.out.println("======================================");
+        System.out.println("new method 1: ");
+        System.out.println(lego.isPieceGreaterThan500AndNameContainsA());
+        System.out.println();
+
+        System.out.println("new method 2: ");
+        System.out.println();
+
+        System.out.println("new method 3: ");
+        System.out.println(lego.piecesSubthemeNullNameContainD());
+        System.out.println();
+
+        System.out.println("new method 4: ");
+        System.out.println(lego.NameThemeNameGreaterIs5SubthemeNull());
+        System.out.println();
+
+        System.out.println("new method 5: ");
+        System.out.println(lego.MapNameNotNull());
 
 
     }

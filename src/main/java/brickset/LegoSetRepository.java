@@ -2,10 +2,9 @@ package brickset;
 
 import repository.Repository;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author Fang Dongzhou
@@ -14,10 +13,76 @@ import java.util.stream.Collectors;
 
 public class LegoSetRepository extends Repository<LegoSet> {
 
+
+    // Homework "stream(2)"
+
     public LegoSetRepository() {
         super(LegoSet.class, "brickset.json");
     }
 
+    /**
+     * New Method 1
+     * Check if pieces greater than 500 and name Start with A
+     * @return the boolean value that satisfied the requirement
+     */
+    public boolean isPieceGreaterThan500AndNameContainsA(){
+        return getAll().stream()
+                .anyMatch(a -> a.getPieces()>500 && a.getName().contains("A"));
+    }
+
+    //The second method must use the flatMap() intermediate operation.
+    /**
+     * New Method 2
+     *
+     * @return nothing
+     */
+//    public void method2(){
+//        getAll().stream()
+//                .flatMap(LegoSet::getName, Stream::n)
+//                .forEach(System.out::println);
+//    }
+
+    /**
+     * New Method 3
+     * get the number of pieces that sub theme name is null and name contains D
+     * @return the long type value satisfied requirement
+     */
+    public long piecesSubthemeNullNameContainD(){
+        return getAll().stream()
+                .filter(LegoSet -> LegoSet.getSubtheme()==null && LegoSet.getName().contains("D"))
+                .map(LegoSet::getPieces)
+                .reduce(0,(a,b)->a+b);
+    }
+
+    /**
+     * New Method 4
+     * Got map that theme name length is 5 and subtheme is null
+     * @return the map that satisfied requirement
+     */
+    public Map NameThemeNameGreaterIs5SubthemeNull(){
+        return getAll().stream()
+                .filter(LegoSet -> LegoSet.getTheme().length() == 5 && LegoSet.getSubtheme()==null)
+                .collect(Collectors.groupingBy(LegoSet::getName));
+    }
+
+    /**
+     * New Method 5
+     * Got map that name is not null
+     * @return the map that satisfied requirement
+     */
+    public Map MapNameNotNull(){
+        return getAll().stream()
+                .filter(LegoSet -> LegoSet.getName() != null)
+                .collect(Collectors.groupingBy(LegoSet::getTheme, Collectors.summingLong(LegoSet::getPieces)));
+    }
+
+
+
+
+
+
+
+    // Homework "stream"
     /**
      * Method 1
      * count the number of object which packagingType is not none and subtheme is not null
@@ -79,7 +144,6 @@ public class LegoSetRepository extends Repository<LegoSet> {
                 .map(LegoSet::getTheme)
                 .count();
     }
-
 
 
 }
