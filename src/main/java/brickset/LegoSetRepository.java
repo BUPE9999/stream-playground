@@ -22,10 +22,10 @@ public class LegoSetRepository extends Repository<LegoSet> {
 
     /**
      * New Method 1
-     * Check if pieces greater than 500 and name Start with A
+     * Return a value that check if there are objects which pieces greater than 500 and name Start with A
      * @return the boolean value that satisfied the requirement
      */
-    public boolean isPieceGreaterThan500AndNameContainsA(){
+    public boolean exitPieceGreaterThan500AndNameContainsA(){
         return getAll().stream()
                 .anyMatch(a -> a.getPieces()>500 && a.getName().contains("A"));
     }
@@ -33,18 +33,20 @@ public class LegoSetRepository extends Repository<LegoSet> {
     //The second method must use the flatMap() intermediate operation.
     /**
      * New Method 2
-     *
+     * print the name by uppercase that name length smaller than 10 and dimension is null
      * @return nothing
      */
-//    public void method2(){
-//        getAll().stream()
-//                .flatMap(LegoSet::getName, Stream::n)
-//                .forEach(System.out::println);
-//    }
+    public void printNameLengthSmallerThan10AndDimensionNull (){
+        getAll().stream()
+                .filter(a -> a.getName().length()<10 && a.getDimensions() == null)
+                .map(LegoSet::getName)
+                .flatMap(a -> Stream.of(a.toUpperCase()))
+                .forEach(System.out::println);
+    }
 
     /**
      * New Method 3
-     * get the number of pieces that sub theme name is null and name contains D
+     * Return a number of pieces that sub theme name is null and name contains D
      * @return the long type value satisfied requirement
      */
     public long piecesSubthemeNullNameContainD(){
@@ -56,7 +58,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
 
     /**
      * New Method 4
-     * Got map that theme name length is 5 and subtheme is null
+     * Return a map that theme name length is 5 and subtheme is null
      * @return the map that satisfied requirement
      */
     public Map NameThemeNameGreaterIs5SubthemeNull(){
@@ -67,7 +69,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
 
     /**
      * New Method 5
-     * Got map that name is not null
+     * Return a map that name is not null
      * @return the map that satisfied requirement
      */
     public Map MapNameNotNull(){

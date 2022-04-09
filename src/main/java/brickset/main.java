@@ -32,10 +32,11 @@ public class main {
 
         System.out.println("======================================");
         System.out.println("new method 1: ");
-        System.out.println(lego.isPieceGreaterThan500AndNameContainsA());
+        System.out.println(lego.exitPieceGreaterThan500AndNameContainsA());
         System.out.println();
 
         System.out.println("new method 2: ");
+        lego.printNameLengthSmallerThan10AndDimensionNull();
         System.out.println();
 
         System.out.println("new method 3: ");
