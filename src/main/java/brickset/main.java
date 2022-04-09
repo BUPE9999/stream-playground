@@ -32,19 +32,19 @@ public class main {
 
         System.out.println("======================================");
         System.out.println("new method 1: ");
-        System.out.println(lego.exitPieceGreaterThan500AndNameContainsA());
+        System.out.println(lego.aBooleanExitPieceGreaterThan500AndNameContainsA());
         System.out.println();
 
         System.out.println("new method 2: ");
-        lego.printNameLengthSmallerThan10AndDimensionNull();
+        lego.printNameLengthSmallerThan10AndDimensionNullWithUpperAndLowerCase();
         System.out.println();
 
         System.out.println("new method 3: ");
-        System.out.println(lego.piecesSubthemeNullNameContainD());
+        System.out.println(lego.reducePiecesSubthemeNullNameContainD());
         System.out.println();
 
         System.out.println("new method 4: ");
-        System.out.println(lego.NameThemeNameGreaterIs5SubthemeNull());
+        System.out.println(lego.MapNameThemeNameLengthIs5SubthemeNull());
         System.out.println();
 
         System.out.println("new method 5: ");

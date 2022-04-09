@@ -25,7 +25,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
      * Return a value that check if there are objects which pieces greater than 500 and name Start with A
      * @return the boolean value that satisfied the requirement
      */
-    public boolean exitPieceGreaterThan500AndNameContainsA(){
+    public boolean aBooleanExitPieceGreaterThan500AndNameContainsA(){
         return getAll().stream()
                 .anyMatch(a -> a.getPieces()>500 && a.getName().contains("A"));
     }
@@ -33,14 +33,14 @@ public class LegoSetRepository extends Repository<LegoSet> {
     //The second method must use the flatMap() intermediate operation.
     /**
      * New Method 2
-     * print the name by uppercase that name length smaller than 10 and dimension is null
+     * print the name by uppercase and also lowercase that name length smaller than 10 and dimension is null
      * @return nothing
      */
-    public void printNameLengthSmallerThan10AndDimensionNull (){
+    public void printNameLengthSmallerThan10AndDimensionNullWithUpperAndLowerCase (){
         getAll().stream()
                 .filter(a -> a.getName().length()<10 && a.getDimensions() == null)
                 .map(LegoSet::getName)
-                .flatMap(a -> Stream.of(a.toUpperCase()))
+                .flatMap(a -> Stream.of(a.toUpperCase(), a.toLowerCase()))
                 .forEach(System.out::println);
     }
 
@@ -49,7 +49,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
      * Return a number of pieces that sub theme name is null and name contains D
      * @return the long type value satisfied requirement
      */
-    public long piecesSubthemeNullNameContainD(){
+    public long reducePiecesSubthemeNullNameContainD(){
         return getAll().stream()
                 .filter(LegoSet -> LegoSet.getSubtheme()==null && LegoSet.getName().contains("D"))
                 .map(LegoSet::getPieces)
@@ -58,10 +58,10 @@ public class LegoSetRepository extends Repository<LegoSet> {
 
     /**
      * New Method 4
-     * Return a map that theme name length is 5 and subtheme is null
+     * Return a map that theme name length is 5 and subtheme is null with groupingBy method
      * @return the map that satisfied requirement
      */
-    public Map NameThemeNameGreaterIs5SubthemeNull(){
+    public Map MapNameThemeNameLengthIs5SubthemeNull(){
         return getAll().stream()
                 .filter(LegoSet -> LegoSet.getTheme().length() == 5 && LegoSet.getSubtheme()==null)
                 .collect(Collectors.groupingBy(LegoSet::getName));
@@ -69,7 +69,7 @@ public class LegoSetRepository extends Repository<LegoSet> {
 
     /**
      * New Method 5
-     * Return a map that name is not null
+     * Return a map that name is not null with groupingBy and summingLong method
      * @return the map that satisfied requirement
      */
     public Map MapNameNotNull(){
