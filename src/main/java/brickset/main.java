@@ -32,11 +32,11 @@ public class main {
 
         System.out.println("======================================");
         System.out.println("new method 1: ");
-        System.out.println(lego.aBooleanExitPieceGreaterThan500AndNameContainsA());
+        System.out.println(lego.aBooleanExitPieceGreaterThan500NameContainsA());
         System.out.println();
 
         System.out.println("new method 2: ");
-        lego.printNameLengthSmallerThan10AndDimensionNullWithUpperAndLowerCase();
+        lego.printNameLengthSmallerThan10DimensionNullWithUpperLowerCase();
         System.out.println();
 
         System.out.println("new method 3: ");

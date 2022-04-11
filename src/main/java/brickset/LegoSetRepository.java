@@ -15,28 +15,26 @@ public class LegoSetRepository extends Repository<LegoSet> {
 
 
     // Homework "stream(2)"
-
     public LegoSetRepository() {
         super(LegoSet.class, "brickset.json");
     }
 
     /**
      * New Method 1
-     * Return a value that check if there are objects which pieces greater than 500 and name Start with A
+     * Return a boolean value that check if there are objects which pieces greater than 500 and name Start with A
      * @return the boolean value that satisfied the requirement
      */
-    public boolean aBooleanExitPieceGreaterThan500AndNameContainsA(){
+    public boolean aBooleanExitPieceGreaterThan500NameContainsA(){
         return getAll().stream()
                 .anyMatch(a -> a.getPieces()>500 && a.getName().contains("A"));
     }
 
-    //The second method must use the flatMap() intermediate operation.
     /**
      * New Method 2
      * print the name by uppercase and also lowercase that name length smaller than 10 and dimension is null
      * @return nothing
      */
-    public void printNameLengthSmallerThan10AndDimensionNullWithUpperAndLowerCase (){
+    public void printNameLengthSmallerThan10DimensionNullWithUpperLowerCase (){
         getAll().stream()
                 .filter(a -> a.getName().length()<10 && a.getDimensions() == null)
                 .map(LegoSet::getName)
